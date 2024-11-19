@@ -1,7 +1,8 @@
-import math
+import pytest
+from math import pi
 import sys
-sys.path.append('../geometric_lib')  # Убедитесь, что путь корректный
-import calculate
+sys.path.append('../geometric_lib')
+from calculate import calc
 
 def test_circle_area():
     radius = 3
