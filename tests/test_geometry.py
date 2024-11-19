@@ -1,5 +1,8 @@
 import math
+import sys 
+sys.path.append('../geometric-lib')
 import calculate
+
 
 
 # Тесты для фигуры Circle
