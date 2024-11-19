@@ -4,6 +4,7 @@ import sys
 sys.path.append('../geometric_lib')
 from calculate import calc
 
+@pytest.mark.parametrize("exp, radius", [(math.pi * 3 ** 2, 3)])
 def test_circle_area():
     radius = 3
     expected = math.pi * radius * radius
