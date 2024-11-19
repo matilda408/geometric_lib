@@ -1,6 +1,6 @@
 import math
 import sys 
-sys.path.append('../geometric-lib')
+sys.path.append('../geometric_lib')
 import calculate
 
 
