@@ -4,9 +4,9 @@ import rectangle
 import triangle
 
 
-figs = ['circle', 'square', 'triangle', 'rectangle']
-funcs = ['perimeter', 'area']
-sizes = {
+FIGS = ['circle', 'square', 'triangle', 'rectangle']
+FUNCS = ['perimeter', 'area']
+SIZES = {
     'perimeter-circle': 1,
     'area-circle': 1,
     'perimeter-square': 1,
@@ -17,28 +17,29 @@ sizes = {
     'area-triangle': 3,
 }
 
-def calc(fig, func, size):
-	assert fig in figs
-	assert func in funcs
 
-	result = eval(f'{fig}.{func}(*{size})')
-	return result
+def calc(fig, func, size):
+    assert fig in FIGS
+    assert func in FUNCS
+
+    result = eval(f'{fig}.{func}(*{size})')
+    return result
+
 
 if __name__ == "__main__":
-	func = ''
-	fig = ''
-	size = list()
-    
-	while fig not in figs:
-		fig = input(f"Enter figure name, avaliable are {figs}:\n")
-	
-	while func not in funcs:
-		func = input(f"Enter function name, avaliable are {funcs}:\n")
-	
-	while len(size) != sizes.get(f"{func}-{fig}", 1):
-		size = list(map(int, input("Input figure sizes separated by space, 1 for circle and square\n").split(' ')))
-	
-	result = calc(fig, func, size)
-	print(result)
+    func = ''
+    fig = ''
+    size = list()
 
+    while fig not in FIGS:
+        fig = input(f"Enter figure name, available are {FIGS}:\n")
 
+    while func not in FUNCS:
+        func = input(f"Enter function name, available are {FUNCS}:\n")
+
+    while len(size) != SIZES.get(f"{func}-{fig}", 1):
+        size = list(map(int, input(
+            "Input figure sizes separated by space, 1 for circle and square\n").split(' ')))
+
+    result = calc(fig, func, size)
+    print(result)
