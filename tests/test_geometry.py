@@ -86,7 +86,7 @@ def test_perimeter_rectangle(size, expected, is_correct):
 
 @pytest.mark.parametrize('size, expected, is_correct', [
         ({2}, 4 * pi, True),
-        ({-2}, 4 * pi, True),
+        ({-2}, 4 * pi, False),
         ({7}, 49 * pi, True),
         ({-12}, 121 * pi, False)
 ])
