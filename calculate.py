@@ -19,11 +19,14 @@ SIZES = {
 
 
 def calc(fig, func, size):
-    assert fig in FIGS
-    assert func in FUNCS
+    if all(s>0 for s in size):
+        assert fig in FIGS
+        assert func in FUNCS
 
-    result = eval(f'{fig}.{func}(*{size})')
-    return result
+        result = eval(f'{fig}.{func}(*{size})')
+        return result
+    else:
+        return 0
 
 
 if __name__ == "__main__":
