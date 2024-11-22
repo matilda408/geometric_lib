@@ -48,8 +48,8 @@ if __name__ == "__main__":
                 map(
                     int,
                     input(
-                        "Input figure sizes separated by space, " 
-                        "1 for circle and square\n"
+                        "Input figure sizes separated by space," 
+                        " 1 for circle and square\n"
                     ).split()
                 )
             )
