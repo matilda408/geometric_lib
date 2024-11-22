@@ -10,6 +10,7 @@ from calculate import calc
         ({5}, 25, True),
         ({10}, 1, False),
         ({-4}, -16, False)
+        
     ])
 def test_area_square(size, expected, is_correct):
     if (is_correct):
