@@ -3,7 +3,6 @@ import square
 import rectangle
 import triangle
 
-
 FIGS = ['circle', 'square', 'triangle', 'rectangle']
 FUNCS = ['perimeter', 'area']
 SIZES = {
@@ -19,22 +18,23 @@ SIZES = {
 
 
 def calc(fig, func, size):
-	if any(isinstance(s, str) for s in size):
-		return
-	elif all(s>0 for s in size):
-		assert fig in FIGS
-		assert func in FUNCS
+    if any(isinstance(s, str) for s in size):
+        return
+    elif all(s > 0 for s in size):
+        assert fig in FIGS
+        assert func in FUNCS
 
-		result = eval(f'{fig}.{func}(*{size})')
-		return result
-	else:
-		print("Sizes must be positive integers\n")
-		return
+        result = eval(f'{fig}.{func}(*{size})')
+        return result
+    else:
+        print("Sizes must be positive integers\n")
+        return
+
 
 if __name__ == "__main__":
     func = ''
     fig = ''
-    size = list()
+    size = []
 
     while fig not in FIGS:
         fig = input(f"Enter figure name, available are {FIGS}:\n")
@@ -43,9 +43,12 @@ if __name__ == "__main__":
         func = input(f"Enter function name, available are {FUNCS}:\n")
 
     while len(size) != SIZES.get(f"{func}-{fig}", 1):
-        size = list(map(int, input(
-            "Input figure sizes separated by space, 1 for circle and square\n"
-        ).split(' ')))
+        try:
+            size = list(map(int, input(
+                "Input figure sizes separated by space, 1 for circle and square\n"
+            ).split()))
+        except ValueError:
+            print("Invalid input. Please enter integers only.")
 
     result = calc(fig, func, size)
     print(result)
