@@ -19,15 +19,17 @@ SIZES = {
 
 
 def calc(fig, func, size):
-    if all(s>0 for s in size):
-        assert fig in FIGS
-        assert func in FUNCS
+	if any(isinstance(s, str) for s in size):
+		return
+	elif all(s>0 for s in size):
+		assert fig in FIGS
+		assert func in FUNCS
 
-        result = eval(f'{fig}.{func}(*{size})')
-        return result
-    else:
-        return 0
-
+		result = eval(f'{fig}.{func}(*{size})')
+		return result
+	else:
+		print("Sizes must be positive integers\n")
+		return
 
 if __name__ == "__main__":
     func = ''
