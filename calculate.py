@@ -44,7 +44,10 @@ if __name__ == "__main__":
 
     while len(size) != SIZES.get(f"{func}-{fig}", 1):
         try:
-            size = list(map(int, input(
+            size = list(
+                map(
+                    int,
+                    input(
                 "Input figure sizes separated by space, 1 for circle and square\n"
             ).split()))
         except ValueError:
